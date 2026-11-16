@@ -1,7 +1,6 @@
 # build output
 /dist/
 /xu526
-/xu526-server
 *.exe
 *.zip
 *.test
