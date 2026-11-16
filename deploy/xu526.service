@@ -1,0 +1,17 @@
+[Unit]
+Description=xu526 (runs and shares your apps)
+After=docker.service network-online.target
+Wants=network-online.target docker.service
+
+[Service]
+# Override in /etc/default/xu526, e.g. XU_FLAGS="-http :80 -domain apps.example.com"
+Environment="XU_FLAGS=-http :80 -domain auto"
+EnvironmentFile=-/etc/default/xu526
+ExecStart=/usr/local/bin/xu526 daemon -state /var/lib/xu526/apps.json $XU_FLAGS
+Restart=always
+RestartSec=2
+KillSignal=SIGTERM
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

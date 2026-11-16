@@ -1,0 +1,14 @@
+# build output
+/dist/
+/xu526
+/xu526-server
+*.exe
+*.zip
+*.test
+
+# editors and OS
+.DS_Store
+.idea/
+.vscode/
+.git
+

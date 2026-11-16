@@ -1,0 +1,17 @@
+[Unit]
+Description=xu526-server (relay and xu526 tunnel sign-up site)
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+# Settings live in /etc/default/xu526-server (XU_FLAGS and XU_PORTAL_*).
+Environment="XU_FLAGS=-http :80"
+EnvironmentFile=-/etc/default/xu526-server
+ExecStart=/usr/local/bin/xu526-server serve -state /var/lib/xu526/apps.json $XU_FLAGS
+Restart=always
+RestartSec=2
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

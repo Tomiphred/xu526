@@ -1,0 +1,2 @@
+Vendored copy of gopkg.in/yaml.v3 v3.0.1 (github.com/go-yaml/yaml), unmodified.
+Kept in-tree so the platform builds without network access.
